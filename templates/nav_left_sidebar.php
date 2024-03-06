@@ -127,37 +127,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                    data-target="#submenu-ui" aria-controls="submenu-ui"><i
-                                        class="fa fa-fw fa-rocket"></i>Elementos de UI</a>
-                                <div id="submenu-ui" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Cartões <span
-                                                    class="badge badge-secondary">Novo</span></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Geral</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Carrossel</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Lista de Grupos</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Tipografia</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Acordeões</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Guias</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                          
                             <!-- Mais itens de menu podem ser adicionados aqui -->
                         </ul>
                     </div>

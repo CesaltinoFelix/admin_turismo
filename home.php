@@ -61,7 +61,7 @@
                                     <div class="card-body">
                                         <h5 class="text-muted">Receitas</h5>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$57,890</h1>
+                                            <h1 class="mb-1">$57,2</h1>
                                         </div>
                                         <div
                                             class="metric-label d-inline-block float-right text-danger font-weight-bold">
