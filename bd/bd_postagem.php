@@ -50,7 +50,7 @@ class BD_Postagem
 
     public function updatePostagem($id, $titulo, $data, $resumo, $descricao, $img_capa, $texto_enfase)
     {
-        $stmt = $this->conn->prepare("UPDATE tb_post SET titulo = ?, data = ?, resumo = ?, descricao = ?, img_capa = ?, texto_enfase = ? WHERE id = ?");
+        $stmt = $this->conn->prepare("UPDATE tb_post SET titulo = ?, data_actualizacao = ?, resumo = ?, descricao = ?, img_capa = ?, texto_enfase = ? WHERE id = ?");
         $stmt->bind_param("ssssssi", $titulo, $data, $resumo, $descricao, $img_capa, $texto_enfase, $id);
 
         if ($stmt->execute()) {

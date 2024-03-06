@@ -1,7 +1,7 @@
 <?php
 
 include_once("../models/model_postagem.php");
-include ("../controllers/upload_files.php");
+include("../controllers/upload_files.php");
 include("../conexao.php");
 include("../bd/bd_postagem.php");
 session_start();
@@ -10,21 +10,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $titulo = $_POST['titulo'] ?? '';
     $resumo = $_POST['resumo'] ?? '';
     $descricao = $_POST['descricao'] ?? '';
+    $texto_enfase = $_POST['texto_enfase'] ?? '';
+    $data = date('Y-m-d');
 
     if (!empty($titulo) && !empty($descricao) && !empty($resumo)) {
-        // $usuario = new BD_Usuario();
-        // $resultado = $usuario->editarUsuario($id, $nome, $email, $contacto);
+        $postagem = new BD_Postagem();
 
-        // if ($resultado === TRUE)
-        //     $_SESSION['mensagem_sucesso'] = "Edição feita com sucesso!";
-        // else
-        //     $_SESSION['mensagem_erro'] = "Falha ao Editar!";
+        if ($_FILES["fileToUpload"]['name'] == null) {
+            $img_capa = $_POST['img_capa_antiga'];
+        }else{
+            $img_capa = uploadImagem($_FILES["fileToUpload"]);
+        }
+
+        $resultado = $postagem->updatePostagem($id, $titulo, $data, $resumo, $descricao, $img_capa, $texto_enfase);
+        if ($resultado === TRUE)
+            $_SESSION['mensagem_sucesso'] = "Edição feita com sucesso!";
+        else
+            $_SESSION['mensagem_erro'] = "Falha ao Editar!";
 
     } else {
         $_SESSION['mensagem_erro'] = "Preencha todos os campos!";
 
     }
-    header("location:../index.php?r=editar-postagem&id=$id");
+    header("location:../index.php?r=editar-post&id=$id");
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 

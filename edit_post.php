@@ -20,10 +20,27 @@ $postagem = $dados->getPostagem($id_postagem);
                     <div class="card">
                         <h5 class="card-header">Formulário de Edição</h5>
                         <div class="card-body">
+                            <?php
+                            if (isset($_SESSION['mensagem_sucesso'])) {
+                                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        ' . $_SESSION['mensagem_sucesso'] . '
+                                        </div>';
+                                unset($_SESSION['mensagem_sucesso']);
+                            }
+                            if (isset($_SESSION['mensagem_erro'])) {
+                                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    ' . $_SESSION['mensagem_erro'] . '
+                                    </div>';
+                                unset($_SESSION['mensagem_erro']);
+                            }
+                            ?>
                             <div class="p-xs">
                                 <form action="./controllers/controller_postagem.php" method="POST"
                                     enctype="multipart/form-data" id="cadastroPostForm">
                                     <input type="hidden" name="id" value="<?php echo $id_postagem; ?>" id="">
+                                    <input type="hidden" name="img_capa_antiga"
+                                        value="<?php echo $postagem['img_capa']; ?>" id="">
+                                    <input type="hidden" name="id_postagem" value="<?php echo $id_postagem; ?>" id="">
                                     <div class="form-group">
                                         <label for="inputNome" class="col-form-label">Titulo</label>
                                         <input id="inputNome" value="<?php echo $postagem['titulo']; ?>" name="titulo"
@@ -31,8 +48,7 @@ $postagem = $dados->getPostagem($id_postagem);
                                     </div>
                                     <div class="form-group">
                                         <label for="inputNome" class="col-form-label">Imagem de Capa</label>
-                                        <input type="file" class="form-control" required name="fileToUpload"
-                                            id="fileToUpload">
+                                        <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputNome" class="col-form-label">Resumo</label>
@@ -45,7 +61,8 @@ $postagem = $dados->getPostagem($id_postagem);
                                             <?php echo $postagem['descricao']; ?>
                                         </textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" style="background-color: #34a854;">Salvar Alteração</button>
+                                    <button type="submit" class="btn btn-primary"
+                                        style="background-color: #34a854;">Salvar Alteração</button>
                                     <button type="button" class="btn btn-secondary"
                                         onclick="limparForm()">Cancelar</button>
                                 </form>
