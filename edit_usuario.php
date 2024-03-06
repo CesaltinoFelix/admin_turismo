@@ -56,7 +56,7 @@ $usuario = $dados->getUsuario($id_usuario);
                                     <small class="form-text text-muted">Formato esperado: (+244)
                                         999-999-999</small>
                                 </div>
-                                <button type="submit" class="btn btn-success">Editar</button>
+                                <button type="submit" class="btn btn-success" style="background-color: #34a854;">Salvar Alteração</button>
                                 <button type="button" class="btn btn-secondary" onclick="limparForm()">Cancelar</button>
                             </form>
                         </div>

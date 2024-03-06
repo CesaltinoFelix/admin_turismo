@@ -55,7 +55,7 @@
                                             <a class="nav-link" href="?r=cadastrar-post">Nova Postagem</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Lista de Postagens</a>
+                                            <a class="nav-link" href="?r=lista-post">Lista de Postagens</a>
                                         </li>
                                     </ul>
                                 </div>

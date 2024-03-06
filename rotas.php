@@ -18,6 +18,12 @@ if (isset($_GET['r'])) {
         case 'cadastrar-post':
             include 'cad_post.php';
             break;
+            case 'lista-post':
+                include 'lista_post.php';
+                break;
+            case 'editar-post':
+                include 'edit_post.php';
+                break;
         default:
             // Se o valor do parâmetro 'pagina' não corresponder a nenhuma rota definida, inclui a página 404
             include 'pages/404-page.html';
