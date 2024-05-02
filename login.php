@@ -35,28 +35,41 @@ if (isset($_SESSION["email"]))
         }
 
         .splash-container {
-            background: rgba(255, 255, 255, 0.5); /* Adiciona um fundo branco transparente */
-            backdrop-filter: blur(15px); /* Aplica um efeito de desfoque ao fundo */
-            border-radius: 10px; /* Adiciona bordas arredondadas ao container */
-            padding: 20px; /* Adiciona um pouco de espaço interno */
-            max-width: 400px; /* Define a largura máxima do container */
-            margin: 0 auto; /* Centraliza o container horizontalmente */
+            background: rgba(255, 255, 255, 0.5);
+            /* Adiciona um fundo branco transparente */
+            backdrop-filter: blur(15px);
+            /* Aplica um efeito de desfoque ao fundo */
+            border-radius: 10px;
+            /* Adiciona bordas arredondadas ao container */
+            padding: 20px;
+            /* Adiciona um pouco de espaço interno */
+            max-width: 400px;
+            /* Define a largura máxima do container */
+            margin: 0 auto;
+            /* Centraliza o container horizontalmente */
         }
 
         .card {
-            background: transparent !important; /* Define o fundo do cartão como transparente */
-            border: none !important; /* Remove a borda do cartão */
+            background: transparent !important;
+            /* Define o fundo do cartão como transparente */
+            border: none !important;
+            /* Remove a borda do cartão */
         }
 
         .card-body {
-            padding: 0; /* Remove o preenchimento interno do corpo do cartão */
+            padding: 0;
+            /* Remove o preenchimento interno do corpo do cartão */
         }
 
         .card-footer {
-            background: rgba(255, 255, 255, 0.5); /* Adiciona um fundo branco transparente ao rodapé do cartão */
-            backdrop-filter: blur(15px); /* Aplica um efeito de desfoque ao fundo do rodapé */
-            border-top: none !important; /* Remove a borda superior do rodapé */
-            border-radius: 0 0 10px 10px; /* Adiciona bordas arredondadas apenas à parte inferior do rodapé */
+            background: rgba(255, 255, 255, 0.5);
+            /* Adiciona um fundo branco transparente ao rodapé do cartão */
+            backdrop-filter: blur(15px);
+            /* Aplica um efeito de desfoque ao fundo do rodapé */
+            border-top: none !important;
+            /* Remove a borda superior do rodapé */
+            border-radius: 0 0 10px 10px;
+            /* Adiciona bordas arredondadas apenas à parte inferior do rodapé */
         }
     </style>
 </head>
@@ -64,8 +77,25 @@ if (isset($_SESSION["email"]))
 <body>
     <div class="splash-container">
         <div class="card">
-            <div class="card-header text-center"><a href="index.php"><img class="logo-img" style="width: 200px; height 150px;" src="assets/images/turismo.png"
-                        alt="logo"></a><span class="splash-description">Por favor, insira os seus dados.</span></div>
+            <div class="card-header text-center"><a href="index.php"><img class="logo-img"
+                        style="width: 200px; height 150px;" src="assets/images/turismo.png" alt="logo"></a><span
+                    class="splash-description">Por favor, insira os seus dados.</span>
+
+                <?php
+                if (isset($_SESSION['mensagem_sucesso'])) {
+                    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            ' . $_SESSION['mensagem_sucesso'] . '
+                                            </div>';
+                    unset($_SESSION['mensagem_sucesso']);
+                }
+                if (isset($_SESSION['mensagem_erro'])) {
+                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    ' . $_SESSION['mensagem_erro'] . '
+                                    </div>';
+                    unset($_SESSION['mensagem_erro']);
+                }
+                ?>
+            </div>
             <div class="card-body">
 
                 <form method="post" action="./controllers/controller_login.php" autocomplete="off">
@@ -79,8 +109,8 @@ if (isset($_SESSION["email"]))
                     </div>
                     <div class="form-group">
                         <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox"><span
-                                class="custom-control-label" style="color: white;">Lembrar palavra-passe</span>
+                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label"
+                                style="color: white;">Lembrar palavra-passe</span>
                         </label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Log in</button>
@@ -88,10 +118,10 @@ if (isset($_SESSION["email"]))
             </div>
             <div class="card-footer bg-white p-0">
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">Criar uma conta</a>
+                    <a href="../index.php" class="footer-link">Voltar ao site</a>
                 </div>
                 <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">Esqueceu a senha?</a>
+                    <a href="recuperar_senha.php" class="footer-link">Esqueceu a senha?</a>
                 </div>
             </div>
         </div>

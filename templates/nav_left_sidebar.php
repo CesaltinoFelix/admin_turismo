@@ -22,10 +22,13 @@
                                 <div id="submenu-reservas" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
+                                            <a class="nav-link" href="?r=agendar-passeio">Agendar Passeio</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="#">Serviços Pendentes</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Lista de Reservas</a>
+                                            <a class="nav-link" href="?r=lista-agenda">Lista de Reservas</a>
                                         </li>
                                     </ul>
                                 </div>

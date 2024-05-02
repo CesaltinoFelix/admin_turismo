@@ -60,7 +60,7 @@ $postagens = $dados->getAllPostagens();
                                                     <?php echo $postagem['data']; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip"
+                                                    <a href="../blog-single.php?id=<?php echo $postagem['id']; ?>" target="_blank" class="btn btn-info btn-sm" data-toggle="tooltip"
                                                         data-placement="top" title="Visualizar"> <i class="fas fa-eye"></i>
                                                     </a>
                                                     <a href="?r=editar-post&id=<?php echo $postagem['id']; ?>"

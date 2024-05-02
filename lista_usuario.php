@@ -1,7 +1,7 @@
 <?php
-include_once("./models/model_usuario.php");
-include("./conexao.php");
-include("./bd/bd_usuario.php");
+include_once ("./models/model_usuario.php");
+include ("./conexao.php");
+include ("./bd/bd_usuario.php");
 $dados = new BD_Usuario();
 $usuarios = $dados->getUsuarios();
 ?>
@@ -17,13 +17,13 @@ $usuarios = $dados->getUsuarios();
                         <h5 class="card-header">Usuários Cadastrados</h5>
                         <div class="card-body">
                             <?php
-                            if (isset($_SESSION['mensagem_sucesso'])) {
+                            if (isset ($_SESSION['mensagem_sucesso'])) {
                                 echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
                                         ' . $_SESSION['mensagem_sucesso'] . '
                                         </div>';
                                 unset($_SESSION['mensagem_sucesso']);
                             }
-                            if (isset($_SESSION['mensagem_erro'])) {
+                            if (isset ($_SESSION['mensagem_erro'])) {
                                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     ' . $_SESSION['mensagem_erro'] . '
                                     </div>';
@@ -62,9 +62,28 @@ $usuarios = $dados->getUsuarios();
                                                         <?php echo ($usuario['status'] == '1') ? 'Ativo' : 'Bloqueado'; ?>
                                                     </span></td>
                                                 <td>
-                                                    <a href="#" class="btn btn-info btn-sm" data-toggle="tooltip"
-                                                        data-placement="top" title="Visualizar"> <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    <?php
+                                                    if ($usuario['status'] == 1):
+                                                        ?>
+                                                        <a href="./controllers/controller_usuario.php?bloquearOuDesbloquer=0&id=<?php echo $usuario['id']; ?>"
+                                                            class="btn btn-info btn-sm" data-toggle="tooltip"
+                                                            data-placement="top" title="Bloquear"> <i
+                                                                class="fas fa-user-times"></i>
+                                                        </a>
+                                                        <?php
+                                                    endif;
+                                                    ?>
+                                                    <?php
+                                                    if ($usuario['status'] == 0):
+                                                        ?>
+                                                        <a href="./controllers/controller_usuario.php?bloquearOuDesbloquer=1&id=<?php echo $usuario['id']; ?>"
+                                                            class="btn btn-info btn-sm" data-toggle="tooltip"
+                                                            data-placement="top" title="Desbloquear"> <i
+                                                                class="fas fa-user-times"></i>
+                                                        </a>
+                                                        <?php
+                                                    endif;
+                                                    ?>
                                                     <a href="?r=editar-usuario&id=<?php echo $usuario['id']; ?>"
                                                         class="btn btn-warning btn-sm" data-toggle="tooltip"
                                                         data-placement="top" title="Editar"> <i class="fas fa-edit"></i>

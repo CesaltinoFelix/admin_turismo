@@ -16,5 +16,6 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <link href="assets/vendor/summernote/summernote-bs4.min.css" rel="stylesheet">
     <script src="assets/vendor/summernote/summernote-bs4.min.js"></script>
-    <title>Turismo</title>
+    <link rel="icon" href="../image/favicon.png" type="image/png">
+    <title> ADMIN - KUZOLA MZAMBI</title>
 </head>
